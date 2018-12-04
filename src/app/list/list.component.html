@@ -1,7 +1,9 @@
 <h2>To Do</h2>
 <ul class="list">
-  <li *ngFor="let list of List" (click)="onSelect(list)">
+  <li [ngClass]="list.doneStyle" *ngFor="let list of List" (click)="onSelect(list)">
+      <div>
           Id : {{list.id}} Nom : {{list.name}} <input type="checkbox" (click)="doneOrNot(list)" [checked]="list.done ">
+      </div>
   </li>
 </ul>
 
@@ -13,5 +15,7 @@
             <input [(ngModel)]="selectedItem.name" placeholder="nom">
         </label>
     </div>
-    <div>Fait ? {{selectedItem.done?'Oui':'Non'}}</div>
+    <div>
+        Fait ? {{selectedItem.done?'Oui':'Non'}}
+    </div>
 </div>

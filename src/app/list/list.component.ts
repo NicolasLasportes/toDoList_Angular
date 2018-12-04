@@ -16,23 +16,23 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
   
-  onSelect(list: List): void {
+  onSelect(list: List): void 
+  {
     //console.log(this.selectedItem);
     this.selectedItem = list;
   }
 
-  doneOrNot(item: List){
+  doneOrNot(item: List)
+  {
     if(item.done == true)
     {
       item.done = false;
+      item.doneStyle = "notDone";
     }
     else
     {
       item.done = true;
+      item.doneStyle = "done";
     }
   }
-
-  // checked(list: List): void {
-  //   this.
-  // }
 }
