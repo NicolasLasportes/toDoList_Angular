@@ -1,7 +1,17 @@
-<li *ngFor="let hero of heroes"></li>
 <h2>To Do</h2>
 <ul class="list">
-  <li *ngFor="let list of List">
-    Id : {{list.id}} Nom : {{list.name}}
+  <li *ngFor="let list of List" (click)="onSelect(list)">
+          Id : {{list.id}} Nom : {{list.name}} <input type="checkbox" (click)="doneOrNot(list)" [checked]="list.done ">
   </li>
 </ul>
+
+<div *ngIf="selectedItem">
+    <h2>Détails de {{selectedItem.name}}</h2>
+    <div>Id: {{selectedItem.id}}</div>
+    <div>
+        <label>Nom:
+            <input [(ngModel)]="selectedItem.name" placeholder="nom">
+        </label>
+    </div>
+    <div>Fait ? {{selectedItem.done?'Oui':'Non'}}</div>
+</div>
