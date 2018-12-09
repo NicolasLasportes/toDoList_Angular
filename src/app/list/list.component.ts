@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { list } from '../mock-list';
 import { List } from '../list';
+import { ListService } from '../list.service';
 
 @Component({
   selector: 'app-list',
@@ -9,16 +9,21 @@ import { List } from '../list';
 })
 
 export class ListComponent implements OnInit {
-  List = list;
   selectedItem: List;
-  constructor() { }
+  List: List[];
+
+  constructor(private listService: ListService) { }
   
   ngOnInit() {
+    this.getItems();
+  }
+
+  getItems(): void {
+    this.List = this.listService.getItems();
   }
   
   onSelect(list: List): void 
   {
-    //console.log(this.selectedItem);
     this.selectedItem = list;
   }
 
