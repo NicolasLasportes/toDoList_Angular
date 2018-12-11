@@ -1,6 +1,6 @@
 import { List } from './list';
 
-export const list: List[] = [
+export var list: List[] = [
   { id: 1, name: 'item 1', done: true, doneStyle: "done" },
   { id: 2, name: 'item 2', done: false, doneStyle: "notDone" },
   { id: 3, name: 'item 3', done: true, doneStyle: "done" },

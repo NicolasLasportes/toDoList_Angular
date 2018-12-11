@@ -1,6 +1,8 @@
 export class List{
-    id : number;
-    name : string;
-    done : boolean;
-    doneStyle: string;
+    constructor(
+        public id : number,
+        public name : string,
+        public done : boolean,
+        public doneStyle: string
+    ) {  }
 }
