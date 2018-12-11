@@ -10,11 +10,19 @@ import { List } from '../list';
 export class ListFormComponent {
   
   lastId = list[list.length-1].id;
-  //model = new List(3, "rjfe", true, "notDone");
+  model = new List(this.lastId + 1, "", false, "notDone");
 
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() 
+  { 
+    this.submitted = true; 
+  }
 
-  get diagnostic() { return JSON.stringify(this.lastId); }
+  newItem()
+  {
+    list.push(this.model);
+  }
+  // TODO: Remove this when we're done
+  get diagnostic() { return JSON.stringify(this.model); }
 }
